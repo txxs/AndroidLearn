@@ -10,13 +10,16 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
     private Button loginButton;
     private ImageButton imageButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /**在Java代码中要找到界面中的button就需要绑定，通过findViewById,找到对应的ID，与Java中的控件绑定
+        /**
+         * 在Java代码中要找到界面中的button就需要绑定，通过findViewById,找到对应的ID，与Java中的控件绑定
          * findViewById返回的是一个view，view是所有控件的父类
          * R就代表资源
          **/
@@ -41,6 +44,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         imageButton.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
     }
 
     @Override
