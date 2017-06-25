@@ -2,9 +2,13 @@ package com.realize.txxs.androidlearn;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,9 +17,10 @@ import java.util.Map;
 
 /**
  * Created by txxs on 2017/6/25.
+ * 两个监听器AdapterView.OnItemClickListener,AbsListView.OnScrollListener方法
  */
 
-public class FActivity extends Activity {
+public class FActivity extends Activity implements AdapterView.OnItemClickListener,AbsListView.OnScrollListener{
 
     private ListView listView;
     private ArrayAdapter<String> arrayAdapter;
@@ -52,6 +57,9 @@ public class FActivity extends Activity {
          */
         //listView.setAdapter(arrayAdapter);
         listView.setAdapter(simpleAdapter);
+        //加载监听器
+        listView.setOnItemClickListener(this);
+        listView.setOnScrollListener(this);
     }
 
     private List<Map<String,Object>> getData(){
@@ -65,5 +73,27 @@ public class FActivity extends Activity {
 
 
         return data;
+    }
+
+    /**
+     * 相关代码可以查看http://www.imooc.com/video/1623
+     * @param view
+     * @param scrollState
+     */
+    @Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+    }
+
+    @Override
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String text = listView.getItemAtPosition(position)+"";
+        Toast.makeText(this,"position"+position+"text"+text,Toast.LENGTH_LONG);
+
     }
 }
